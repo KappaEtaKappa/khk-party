@@ -1,0 +1,15 @@
+[Unit]
+Description=Party vouching site
+Type=forking
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/bin/node /opt/khk-web/khk-party/lit.js
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
